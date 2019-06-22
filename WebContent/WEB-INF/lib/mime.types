@@ -1,0 +1,33 @@
+# Title: mime.types
+# Description: Properties file for supported mime types.
+# Author: Peter Szocs
+
+application/mac-binhex40 hqx
+application/mspowerpoint pt pps ppt ppz
+application/msword doc dot
+application/pdf pdf
+application/postscript ai eps ps
+application/octet-stream bin class exe sea
+application/rtf rtf
+application/vnd.ms-excel xls xlw xla xlc xlm xlt
+application/x-csh csh
+application/x-javascript js
+application/x-sh sh
+application/x-stuffit sit
+application/x-shockwave-flash swf
+application/x-gtar gtar
+application/x-gzip gz
+application/x-tar tar tgz
+application/x-tcl tcl
+application/zip zip
+
+audio/mpeg mp3
+
+image/bmp bmp
+image/gif gif
+image/jpeg jpe jpeg jpg
+image/png png
+image/tiff tif tiff
+
+text/html htm html shtm shtml
+text/plain lic txt

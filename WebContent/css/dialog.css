@@ -1,0 +1,551 @@
+/************************************    DIALOG    ***********************************/
+
+
+/* DIALOG GUI */
+
+
+/* active dialog */
+.nwinActive {
+	z-index: 1;
+    position: absolute;
+	left: 450px;
+	top: 20px; 
+    background-color: transparent;
+	width: 300px;
+}
+
+/* this controls the location and appearance of the BIU buttons, font dropdowns */
+.formatleft, .formatleftHover {
+	float: left;
+	margin-top: 2px;
+	margin-right: 2px;
+	border: 2px solid #4A514A;
+	width: 18px;
+	height: 18px;
+}
+
+/* this controls the location and appearance of the smiley and color palette buttons */
+.formatright, .formatrightHover {
+	float: right;
+	margin-top: 2px;
+	margin-left: 2px;
+	border: 2px solid #4A514A;
+	width: 18px;
+	height: 18px;
+}
+
+/* this controls the onhover effects of BIU buttons, font dropdowns, smiley and color palette */
+.formatleftHover, .formatrightHover {
+	border: 2px solid orange;
+	cursor: pointer;
+}
+
+/* B image when OFF */
+.bElementOff {
+	background: url('http://farm3.static.flickr.com/2383/2230112780_791a7d777b_o.gif') 0px 0px;
+}
+
+/* B image when ON */
+.bElementOn {
+	background: url('http://farm3.static.flickr.com/2383/2230112780_791a7d777b_o.gif') -18px 0px;
+}
+
+/* I image when OFF */
+.iElementOff {
+	background: url('http://farm3.static.flickr.com/2224/2229320593_a54aec2b28_o.gif') 0px 0px;
+}
+
+/* I image when ON */
+.iElementOn {
+	background: url('http://farm3.static.flickr.com/2224/2229320593_a54aec2b28_o.gif') -18px 0px;
+}
+
+/* U image when OFF */
+.uElementOff {
+	background: url('http://farm3.static.flickr.com/2224/2230112868_f46ed2c364_o.gif') 0px 0px;
+}
+
+/* U image when ON */
+.uElementOn {
+	background: url('http://farm3.static.flickr.com/2224/2230112868_f46ed2c364_o.gif') -18px 0px;
+}
+
+
+/* DIALOG GUI ELEMENTS */
+
+
+.iwinActive {
+    filter:alpha(opacity=100);
+	opacity:1;
+	height: 172px;
+}
+
+.iwinInactive {
+    filter:alpha(opacity=60);
+	opacity:0.60;
+	height: 172px;
+}
+
+.iwinLeft {
+    filter:alpha(opacity=80);
+	opacity:0.80;
+    background: url('http://farm3.static.flickr.com/2264/2230112100_e97eddb104_o.gif') repeat-y;
+    width: 8px; 
+    height: 172px;
+    float: left;
+}
+
+.iwinRight {
+    filter:alpha(opacity=80);
+	opacity:0.80;
+    background: url('http://farm3.static.flickr.com/2165/2230112128_7e7a5e7721_o.gif') repeat-y;
+    width: 8px; 
+	height: 172px;
+    float: right;
+}
+
+.btmbarActive {
+    filter:alpha(opacity=80); 
+	opacity:0.80;
+    width: 100%; 
+	height: 2px;
+	font-size: 0px;
+	float: left;
+}
+
+.btmbarInactive {
+    filter:alpha(opacity=60);
+	opacity:0.60;
+    width: 100%; 
+	height: 2px;
+	font-size: 0px;
+	float: left;
+}
+
+.btmbarLeft {
+    background: url('http://farm3.static.flickr.com/2370/2230111740_a54ce3342b_o.gif') no-repeat;
+    width: 8px; 
+	height: 8px;
+    float: left;
+}
+
+.btmbarMid {
+	background: url('http://farm3.static.flickr.com/2057/2230111714_baf46d62a0_o.gif') repeat-x;	
+    width: 284px; 
+	height: 8px;
+    float: left;
+}
+
+.btmbarRight {
+    background: url('http://farm3.static.flickr.com/2093/2230111768_94f561bb40_o.gif') no-repeat;
+    width: 8px; 
+	height: 8px;
+    float: right;
+}
+
+.btmbarResize {
+    background: url('http://farm3.static.flickr.com/2093/2230111768_94f561bb40_o.gif') no-repeat;
+    width: 8px; 
+	height: 8px;
+    float: right;
+	MoveStyle: resize;
+    cursor: nw-resize;
+}
+
+.smallTopBarLeft {
+    background: url('http://farm4.static.flickr.com/3330/3195893958_a925c603cc_o.gif') no-repeat;
+    width: 8px; 
+	height: 8px;
+    float: left;
+}
+
+.smallTopBarMid {
+    background: url('http://farm4.static.flickr.com/3479/3195893950_9337d7d1c9_o.gif') repeat-x;
+    width: 284px;
+	height: 8px;
+    float: left;
+}
+
+.smallTopBarRight {
+    background: url('http://farm4.static.flickr.com/3336/3195893948_f57acb4c8b_o.gif') no-repeat;
+    width: 8px;
+	height: 8px;
+    float: right;
+}
+
+.topbarActive {
+    filter:alpha(opacity=80); 
+	opacity:0.80;
+    display: block;
+    width: 100%;
+    height: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+.topbarInactive {
+    filter:alpha(opacity=60); 
+	opacity:0.60;
+    display: block;
+    width: 100%;
+    height: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+a.topbarTop {
+    background: url('http://farm3.static.flickr.com/2160/2230112400_a383725034_o.gif') no-repeat;
+    width: 8px;
+    height: 24px;
+    float: left;
+	border: 0px solid white;
+    padding: 0;
+}
+
+.topbarMid {
+	background: url('http://farm3.static.flickr.com/2076/2229319967_3d8424e673_o.gif') repeat-x;
+    width: 186px;
+    height: 24px;
+    float: left;
+    padding: 0;
+}
+
+a.topbarMin {
+    background: url('http://farm3.static.flickr.com/2382/2230112586_43447dbd4c_o.gif') no-repeat;
+    width: 28px;
+    height: 24px;
+    float: right;
+	border: 0px solid white;
+    padding: 0;
+}
+
+a.topbarMax {
+    background: url('http://farm3.static.flickr.com/2025/2229320341_10a957f19b_o.gif') no-repeat;
+    width: 26px;
+    height: 24px;
+    float: right;
+	border: 0px solid white;
+    padding: 0;
+}
+
+a.topbarTiles {
+    background: url('http://farm3.static.flickr.com/2315/2229320665_de5f4ef27e_o.gif') no-repeat;
+    width: 26px;
+    height: 24px;
+    float: right;
+	border: 0px solid white;
+    padding: 0;
+}
+
+a.topbarClose {
+    background: url('http://farm3.static.flickr.com/2116/2230112196_fa445f4e2f_o.gif') no-repeat;
+    width: 52px;
+    height: 24px;
+    float: right;
+	border: 0px solid white;
+    padding: 0;
+}
+
+a.topbarMinhover {
+    background: url('http://farm3.static.flickr.com/2159/2230112606_2b916c2812_o.gif') no-repeat;
+    width: 28px;
+    height: 24px;
+    float: right;
+	border: 0px solid white;
+    padding: 0;
+}
+
+a.topbarMaxhover {
+    background: url('http://farm3.static.flickr.com/2237/2229320367_4fa59ef7be_o.gif') no-repeat;
+    width: 26px;
+    height: 24px;
+    float: right;
+	border: 0px solid white;
+    padding: 0;
+}
+
+a.topbarTileshover {
+    background: url('http://farm3.static.flickr.com/2212/2229320691_802a5e8fd6_o.gif') no-repeat;
+    width: 26px;
+    height: 24px;
+    float: right;
+	border: 0px solid white;
+    padding: 0;
+}
+
+a.topbarClosehover {
+    background: url('http://farm3.static.flickr.com/2314/2229320087_8a5bfb9787_o.gif') no-repeat;
+    width: 52px;
+    height: 24px;
+    float: right;
+	border: 0px solid white;
+    padding: 0;
+}
+
+.topmenuActive {
+    filter:alpha(opacity=100);
+	opacity:1;
+}
+
+.topmenuInactive {
+    filter:alpha(opacity=60);
+	opacity:0.60; 
+}
+
+.topmenuLeft {
+    filter:alpha(opacity=80);
+	opacity:0.80;
+	background: url('http://farm3.static.flickr.com/2264/2230112100_e97eddb104_o.gif') repeat-y;
+    width: 8px;
+	height: 55px;
+    float: left;
+}
+
+.topmenuImg {
+    filter:alpha(opacity=100); 
+	-moz-opacity:1; 
+	height: 48px;
+	width: 48px;
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+}
+
+.topmenuMid {
+    filter:alpha(opacity=80); 
+	-moz-opacity:0.80; 
+	background: url('http://farm3.static.flickr.com/2081/2230111700_b8cb71fcfe_o.gif') repeat;
+	width: 231px;
+	height: 48px;
+	margin: 0px;
+	border: 0px;
+	padding: 0px 0px 0px 5px;
+	font-size: 16px;
+	font-weight: bold;
+	float: left;
+}
+
+.topmenuRight {
+    filter:alpha(opacity=80);
+	opacity:0.80;
+    background: url('http://farm3.static.flickr.com/2165/2230112128_7e7a5e7721_o.gif') repeat-y;
+    width: 8px;
+	height: 55px;
+    float: right;
+}
+
+.topmenuSpc {
+    filter:alpha(opacity=80); 
+	-moz-opacity:0.80; 
+	background: url('http://farm3.static.flickr.com/2081/2230111700_b8cb71fcfe_o.gif') repeat;
+	width: 284px;
+	margin: 0px;
+	border: 0;
+	padding:0px;
+	font-size: 6px;
+	float: left;
+}
+
+.btmmenuActive {
+    filter:alpha(opacity=100);
+	opacity:1;
+    width: 100%;
+    height: 115px;
+}
+
+.btmmenuInactive {
+    filter:alpha(opacity=60); 
+	opacity:0.60; 
+    width: 100%;
+    height: 115px;
+}
+
+.btmmenuLeft {
+    filter:alpha(opacity=80); 
+	-moz-opacity:0.80; 
+    background: url('http://farm3.static.flickr.com/2264/2230112100_e97eddb104_o.gif') repeat-y;
+    width: 8px;
+    height: 100%;
+    float: left;
+}
+
+.btmmenuTop, .btmmenuBottom {
+    filter:alpha(opacity=80);
+	opacity:0.80; 
+	background: url('http://farm3.static.flickr.com/2081/2230111700_b8cb71fcfe_o.gif') repeat;
+	width: 284px;
+	padding: 0;
+	float: left;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.btmmenuTop {
+	height: 25px;
+}
+
+.btmmenuBottom {
+	height: 17px;		/* Moz only */
+	padding: 1px 0px 0px 0px;
+}
+
+/* HACK: because Chrome is based on webkit, which renders the box model
+         problem differently than Mozilla, the following Chrome
+		 adjustment is needed to render the dialog correctly.
+   Note: this applies to CHROME ONLY! */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+.btmmenuBottom { height: 13px; }
+}
+
+.btmmenuRight {
+    filter:alpha(opacity=80); 
+	-moz-opacity:0.80; 
+    background: url('http://farm3.static.flickr.com/2165/2230112128_7e7a5e7721_o.gif') repeat-y;
+    width: 8px;
+    height: 100%;
+    float: right;
+}
+
+/************************************************************************************/
+/****************              DIALOG STRUCTURE                **********************/
+/************************************************************************************/
+
+
+/* DIALOG HEADER */
+
+/* NOTE: the buddyIcon, buddyName styling is handled in buddylist.css !! */
+
+
+
+/* CHAT HISTORY DIV */
+
+
+/* this is the div with all messages of a given chat */
+div.chatHistory {
+    filter:alpha(opacity=100);
+	opacity:1;
+	float: left;
+	border: 1px solid #999999;
+	width: 282px;
+	height: 170px;
+	overflow: auto;
+	background-color: #4A514A;
+	font-size: 12px;
+	text-align: left;
+	word-wrap: break-word;					/* IE only */
+	scrollbar-arrow-color: #999999;			/* IE only */
+	scrollbar-base-color: #999999;			/* IE only */
+	scrollbar-darkshadow-color: #999999;	/* IE only */
+	scrollbar-face-color: #4A514A;			/* IE only */
+	scrollbar-highlight-color: #4A514A;		/* IE only */
+	scrollbar-shadow-color: #4A514A;		/* IE only */
+}
+
+/* this is the div with all messages of a given chat */
+div.chatHistory a:link, div.chatHistory a:visited {
+	color: orange;
+}
+
+/* controls the look & feel of msg meta sent by me */
+span.myChatMessageMeta {
+	color: orange;
+	font-family: Verdana;
+}
+
+/* controls the look & feel of msg meta sent by others to me */
+span.partnerChatMessageMeta {
+	color: white;
+	font-family: Verdana;
+}
+
+/* controls the look & feel of msg meta sent by the system to me */
+span.systemChatMessageMeta {
+	color: #999999;
+	font-family: Verdana;
+	font-style: italic;
+}
+
+/* controls the look & feel of msg content sent by the system to me */
+span.systemChatMessageContent {
+	color: #999999;
+	font-family: Verdana;
+	font-style: italic;
+}
+
+/* controls the look & feel of drag-n-drop images */
+img.sentImage {
+	height: 150px;
+	width: 240px;
+	border: 0px;
+	margin: 4px 0px 5px 5px;
+}
+
+/* controls the look & feel of drag-n-drop images */
+object.video, embed.video {
+	height: 150px;
+	width: 240px;
+	border: 0px;
+	margin: 4px 0px 0px 3px;
+}
+
+
+/* TEXTAREA */
+
+
+/* This is where I type my next message. */
+.chatMessage {
+	filter:alpha(opacity=100);
+	opacity:1;
+	overflow: auto; 
+	width: 282px;
+	height: 70px; 
+	border: 1px solid #999;
+	font-size: 13px;
+	/* NOTE: the default textarea color is set inside dialog.js::setDialogDefaults() */
+	background-color: #333333;
+	margin: 0px;
+	float: left;
+	resize: none;
+	scrollbar-arrow-color: #666666;			/* IE only */
+	scrollbar-base-color: #666666;			/* IE only */
+	scrollbar-darkshadow-color: #666666;	/* IE only */
+	scrollbar-face-color: #333333;			/* IE only */
+	scrollbar-highlight-color: #333333;		/* IE only */
+	scrollbar-shadow-color: #333333;		/* IE only */
+}
+
+/* HACK: because Chrome is based on webkit, which renders the box model
+         problem differently than Mozilla, the following Chrome
+		 adjustment is needed to render the dialog correctly.
+   Note: this applies to CHROME ONLY! */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+.chatMessage { width: 278px; }
+}
+
+
+/* DIALOG FOOTER */
+
+
+/* controls the look & feel of the IM status line at the bottom of dialogs */
+span.chatStatus {
+	color: white;
+	font-size: 10px;
+	float: left;
+}
+
+/* controls the look & feel of the resize handle at the bottom right corner of dialogs */
+img.resizeHandle {
+	margin: 0px -1px 0px 0px;
+	float: right;
+	cursor: nw-resize;
+}
+
+/* controls the look & feel of the IM status images at the bottom of dialogs (ie the typing images) */
+img.typingImg {
+	height: 12px;
+	width: 16px;
+	padding-left: 5px;
+	vertical-align: middle;
+	float: left;
+}

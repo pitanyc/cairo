@@ -1,0 +1,119 @@
+html {
+	overflow: auto;
+}
+
+body {
+	background-color: #6A6A69; 
+	color: white;
+	font-family: "Trebuchet MS",Verdana,Arial,sans-serif;
+	font-size: 12px;
+	margin: 0;
+	padding: 0;
+}
+
+/* transparent line */
+div#lineDiv {
+	width: 100%;
+	background: #6A6A69;
+	height: 145px;
+    filter: alpha(opacity=80);
+	opacity: 0.8;
+}
+
+/* horizontal centering */
+div#horizontalDiv { 
+	margin-left: auto;
+	margin-right: auto;
+	width: 430px;
+}
+
+/* the left box */
+div#leftBox {
+	width: 23%;
+	float: left;
+}
+
+/* the right box */
+div#rightBox {
+	width: 76%;
+	float: right;
+	border-left: 1px dashed white;
+}
+
+/* logo */
+div#logo {
+	font-family: Cursive;
+	font-size: 36px;
+	float: right;
+	margin: 45% 20px 0px 0px;
+}
+
+/* right box content span for padding */
+span#rightBoxContent {
+	float: left;
+	padding-right: 5px;
+	width: 320px;
+}
+
+/* welcome text */
+div#welcome {
+	font-size: 26px;
+	font-weight: bold;
+	margin-left: 20px;
+	margin-bottom: 15px; 
+}
+
+/* error msg */
+div#err {
+	font-size: 16px;
+	font-weight: bold;
+	color: #ff4040;
+	float: right;
+}
+
+/* input label & error message */
+div.input {
+	font-size: 18px;
+	font-weight: bold;
+	float: right;
+}
+
+/* input form element */
+input {
+	border: 1px solid #6A6A69;
+	margin: 1px;
+	width: 180px;
+	font-family: Verdana,Arial,sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #333333;
+	background-color: #FFFFFF;
+}
+
+/* button div */
+div#button {
+	width: 285px;
+	float: right;
+	margin: 10px 0px 5px 0px; 
+}
+
+/* sumbit button */
+input#goButton {
+	height: 32px;
+	width: 32px;
+	float: right;
+}
+
+/* copyright note */
+div#copyright {
+	background-color: #6A6A69;
+	font-family: Cursive;
+	font-size: 14px;
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 8px 0px 12px;
+	filter: alpha(opacity=60);
+	opacity: 0.6;
+}

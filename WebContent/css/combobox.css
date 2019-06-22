@@ -1,0 +1,45 @@
+/************************************    COMBO BOXES    ***********************************/
+
+
+/* this controls the look & feel of combo boxes when NOT IN FOCUS */
+button.combobox {
+	background-color: transparent;
+	float: left;
+	vertical-align: bottom;
+	width: 70px;
+	margin: 2px 0px 0px 0px;
+	padding: 4px 4px 1px 3px;
+	text-align: left;
+	cursor: default;
+	color: white;
+	font-size: 12px;
+	font-weight: bold;
+	border: 1px solid #999999;
+}
+
+/* this controls the appearance of the combo boxes IN FOCUS */
+button.comboboxFocus {
+	background-color: orange;
+	float: left;
+	vertical-align: bottom;
+	width: 70px;
+	margin: 2px 0px 0px 0px;
+	padding: 4px 4px 1px 3px;
+	text-align: left;
+	cursor: default;
+	color: white;
+	font-size: 12px;
+	font-weight: bold;
+	border: 1px solid #999999;
+}
+
+/* this controls the appearance of the text inside combo boxes */
+button.combobox span, button.comboboxFocus span {
+	float: left;
+}
+
+/* this controls the appearance of the dropdown arrow inside combo boxes */
+button.combobox img, button.comboboxFocus img {
+	float: right;
+	margin: 6px 2px 0px 0px;
+}

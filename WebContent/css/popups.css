@@ -1,0 +1,310 @@
+/************************************    POPUPS    ***********************************/
+
+
+/* CLICK FILTERS */
+
+
+/* this controls the appearance of the click filters */
+.clickFilter {
+	left: 0;
+	top: 0;
+	width: 0px;
+	height: 0px;
+	background-color: gray;
+	position: absolute;
+	z-index: 15;
+	filter: alpha(Opacity: 0);	/* IE only */
+	opacity:0;				    /* FF only */
+}
+
+
+/* this controls the appearance of regular (unclickable) filters */
+div#filter {
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: gray;
+	position: absolute;
+	z-index: 15;
+	filter: alpha(Opacity: 60);/* IE only */
+	opacity:0.6;			   /* FF only */
+}
+
+
+/* SOUND SETTINGS (CANVAS) */
+
+
+/* this controls the appearance of the sound settings palette */
+#soundSettingsPalette {
+	padding: 0px 10px 0px 3px;
+	visibility: hidden;
+	position: absolute;
+	z-index: 20;
+	border: 1px solid #cccccc;
+	font-size: 12px;
+	color: #333333;
+	background-color: white;
+	width: 140px;
+}
+
+/* this controls the appearance of the blinker settings palette's OK button */
+#soundSettingsPalette button {
+    margin: 5px 0px 3px 2px;    /* this sets button position */
+	padding: 0px 15px 0px 15px;  /* this sets button width */
+	border: 1px solid #cccccc;
+	color: #333333;
+	background-color: #D58E17;
+}
+
+
+/* BLINKER SETTINGS (CANVAS) */
+
+
+/* this controls the appearance of the blinker settings palette */
+#blinkerSettingsPalette {
+	padding: 0px 10px 0px 3px;
+	visibility: hidden;
+	position: absolute;
+	z-index: 20;
+	border: 1px solid #cccccc;
+	font-size: 12px;
+	color: #333333;
+	background-color: white;
+}
+
+/* this controls the appearance of the blinker settings palette's OK button */
+#blinkerSettingsPalette button {
+    margin: 5px 0px 3px 5px;    /* this sets button position */
+	padding: 0px 15px 0px 15px;  /* this sets button width */
+	border: 1px solid #cccccc;
+	color: #333333;
+	background-color: #D58E17;
+}
+
+
+/* MY STATUS PICKER (BUDDY LIST) */
+
+
+/* this controls the appearance of my status palette */
+#statusPalette {
+	padding: 0;
+	visibility: hidden;
+	position: absolute;
+	z-index: 20;
+	border: 1px solid #cccccc;
+	font-size: 12px;
+	color: #333333;
+	background-color: white;
+}
+
+/* this controls the appearance of the entry IN FOCUS on my status palette */
+#statusPalette div.focus {
+	background-color: #D58E17;
+	cursor: default;
+}
+
+/* this controls the appearance of all entries on my status palette */
+#statusPalette div {
+	padding: 2px 0px 0px 10px;
+	height: 22px;
+	width: 140px;
+	vertical-align: middle;
+}
+
+/* this controls the appearance of my custom away message input field */
+#myCustomAwayMsg {
+	font: 100% "Trebuchet MS",Verdana,Arial,sans-serif;
+	cursor: text;
+	width: 90px;
+	margin-left: 5px;
+	border: 1px solid #999999;
+	text-align: left;
+}
+
+
+/* FONT STYLE PICKER (DIALOG) */
+
+
+/* this controls the appearance of the font style picker */
+#fontStylePalette {
+	padding: 2px 4px 5px 4px;
+	visibility: hidden;
+	position: absolute;
+	z-index: 20;
+	border: 1px solid #cccccc;
+	background-color: #4A514A;
+}
+
+
+/* FONT FAMILY PICKER (DIALOG) */
+
+
+/* this controls the appearance of the font family palette (the dropdown) */
+#fontFamilyPalette {
+	padding: 0;
+	visibility: hidden;
+	position: absolute;
+	z-index: 25;
+	border: 1px solid #cccccc;
+	font-size: 12px;
+	color: #333333;
+	background-color: white;
+}
+
+/* this controls the appearance of the entry IN FOCUS on the font family palette */
+#fontFamilyPalette tr.focus {
+	background-color: #D58E17;
+	cursor: default;
+}
+
+/* this controls the appearance of all entries on the font family palette */
+#fontFamilyPalette td {
+	padding: 0px 16px 0px 7px;
+}
+
+
+/* FONT SIZE PICKER (DIALOG) */
+
+
+/* this controls the appearance of the font size palette (the dropdown) */
+#fontSizePalette {
+	padding: 0;
+	visibility: hidden;
+	position: absolute;
+	z-index: 25;
+	border: 1px solid #cccccc;
+	font-size: 12px;
+	color: #333333;
+	background-color: white;
+}
+
+/* this controls the appearance of the entry IN FOCUS on the font size palette */
+#fontSizePalette tr.focus {
+	background-color: #D58E17;
+	cursor: default;
+}
+
+/* this controls the appearance of all entries on the font size palette */
+#fontSizePalette td {
+	padding: 0px 21px 0px 7px;
+}
+
+
+/* COLOR PICKER (DIALOG) */
+
+
+/* this controls the appearance of the color picker */
+#colorPalette {
+	visibility: hidden;
+	position: absolute;
+	z-index: 20;
+}
+
+
+/* TRANSLATE PICKER (DIALOG) */
+
+
+/* this controls the appearance of the translate palette */
+#translatePalette {
+	padding: 2px 4px 5px 4px;
+	visibility: hidden;
+	position: absolute;
+	z-index: 20;
+	font-size: 12px;
+	border: 1px solid #cccccc;
+	background-color: #4A514A;
+}
+
+/* this controls the appearance of the translate table */
+#translateTable {
+	margin-left: 3px;
+}
+
+/* this controls the appearance of the cells in the translate table */
+#translateTable td {
+    width: 38px;
+}
+
+/* this controls the appearance of the language palette (the dropdown) */
+#languagePaletteFrom, #languagePaletteTo {
+	padding: 0;
+	visibility: hidden;
+	position: absolute;
+	z-index: 25;
+	border: 1px solid #cccccc;
+	font-size: 12px;
+	color: #333333;
+	background-color: white;
+}
+
+/* this controls the appearance of the entry IN FOCUS on the language palette */
+#languagePaletteFrom tr.focus, #languagePaletteTo tr.focus {
+	background-color: #D58E17;
+	cursor: default;
+}
+
+/* this controls the appearance of all entries on the language palette */
+#languagePaletteFrom td, #languagePaletteTo td {
+	padding: 0px 21px 0px 7px;
+}
+
+
+/* SPECIAL EFFECTS PICKER (DIALOG) */
+
+
+/* this controls the appearance of the special effects picker */
+#soundsPalette {
+	padding: 0;
+	visibility: hidden;
+	position: absolute;
+	z-index: 20;
+	border: 1px solid #cccccc;
+	background-color: white;
+}
+
+/* this controls the appearance of each entry NOT IN FOCUS on the special effects picker */
+#soundsPalette td {
+	border: 1px solid #E7E7CF;
+}
+
+/* this controls the appearance of the entry IN FOCUS on the special effects picker */
+#soundsPalette td.focus {
+	border: 1px solid #313473;
+}
+
+/* this controls the size of each special effect image */
+#soundsPalette img {
+	width: 21px;
+	height: 21px;
+}
+
+
+/* SMILEY PICKER (DIALOG) */
+
+
+/* this controls the appearance of the smiley picker */
+#smileyPalette {
+	padding: 0;
+	visibility: hidden;
+	position: absolute;
+	z-index: 20;
+	border: 1px solid #cccccc;
+	background-color: white;
+}
+
+/* this controls the appearance of each entry NOT IN FOCUS on the smiley picker */
+#smileyPalette td {
+	border: 1px solid #E7E7CF;
+}
+
+/* this controls the appearance of the entry IN FOCUS on the smiley picker */
+#smileyPalette td.focus {
+	border: 1px solid #313473;
+}
+
+/* this controls the size of each smiley */
+#smileyPalette img {
+	width: 21px;
+	height: 21px;
+}

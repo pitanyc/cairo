@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+
+
+	<display-name>CairoWAR</display-name>
+	<description>Web module for the message project</description>
+
+
+    <servlet>
+        <servlet-name>cometd</servlet-name>
+        <servlet-class>org.mortbay.cometd.CometdServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+		<init-param>
+		  <param-name>config</param-name>
+		  <param-value>/WEB-INF/struts-config.xml</param-value>
+		</init-param>
+		<init-param>
+		  <param-name>debug</param-name>
+		  <param-value>2</param-value>
+		</init-param>
+		<init-param>
+		  <param-name>detail</param-name>
+		  <param-value>2</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+
+
+	<servlet-mapping>
+    	<servlet-name>cometd</servlet-name>
+    	<url-pattern>/cometd/*</url-pattern>
+  	</servlet-mapping>
+    <servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>jsp</servlet-name>
+        <url-pattern>/js/include_js.js</url-pattern>
+    </servlet-mapping>
+
+	
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.jsp</location>
+    </error-page>
+	<error-page>
+        <error-code>500</error-code>
+        <location>/500.jsp</location>
+    </error-page>
+
+
+	<jsp-config> 
+		<taglib>
+			<taglib-uri>/struts-bean</taglib-uri>
+			<taglib-location>/WEB-INF/tld/struts-bean.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>/struts-html</taglib-uri>
+			<taglib-location>/WEB-INF/tld/struts-html.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>/struts-logic</taglib-uri>
+			<taglib-location>/WEB-INF/tld/struts-logic.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>/struts-template</taglib-uri>
+			<taglib-location>/WEB-INF/tld/struts-template.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>/struts-nested</taglib-uri>
+			<taglib-location>/WEB-INF/tld/struts-nested.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>/struts-tiles</taglib-uri>
+			<taglib-location>/WEB-INF/tld/struts-tiles.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>/struts-html-el</taglib-uri>
+			<taglib-location>/WEB-INF/tld/struts-html-el.tld</taglib-location>
+		</taglib>  
+		<taglib>
+			<taglib-uri>/struts-bean-el</taglib-uri>
+			<taglib-location>/WEB-INF/tld/struts-bean-el.tld</taglib-location>
+		</taglib>  
+		<taglib>
+			<taglib-uri>/struts-logic-el</taglib-uri>
+			<taglib-location>/WEB-INF/tld/struts-logic-el.tld</taglib-location>
+		</taglib> 
+		<taglib>
+			<taglib-uri>/decorator</taglib-uri>
+			<taglib-location>/WEB-INF/tld/sitemesh-decorator.tld</taglib-location>
+		</taglib>	
+		<taglib>
+			<taglib-uri>/sitemesh-page</taglib-uri>
+			<taglib-location>/WEB-INF/tld/sitemesh-page.tld</taglib-location>
+		</taglib>
+	</jsp-config> 
+
+</web-app>

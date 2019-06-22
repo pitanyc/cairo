@@ -1,0 +1,89 @@
+<project name="cairo" default="deploy" basedir="..">
+
+  <!-- ==================== Prepare Target ================================== -->
+  <target name="prepare"  description="Defines all environments and base directories used by build">
+    <property name="company.name"       value="ZLocker Inc."/>
+    <property name="war.name"           value="cairo.war"/>
+    <property name="war.dir"            value="${basedir}"/>
+
+	<property name="javasource.home"    value="${war.dir}/JavaSource"/>
+    <property name="webcontent.home"    value="${war.dir}/WebContent"/>
+    <property name="webinf"             value="${webcontent.home}/WEB-INF"/>
+    <property name="webinf.classes"     value="${webinf}/classes"/>
+    <property name="webinf.lib"         value="${webinf}/lib"/>
+    <property name="temp.dir"           value="${basedir}/temp"/>
+    <property name="build.lib"          value="${basedir}/build/lib"/>
+
+    <tstamp>
+      <format property="time" pattern="MM/dd/yyyy hh:mmaa" locale="en"/>
+    </tstamp>
+     
+    <path id="base.classpath">
+      <fileset dir="${webinf.lib}">
+          <include name="*.jar"/>
+      </fileset>
+      <fileset dir="${build.lib}">
+          <include name="*.jar"/>
+      </fileset>
+	</path>
+  </target><!-- =========== END OF: prepare target ========================== -->
+
+
+
+  <!-- ==================== Compile Target ================================== -->
+  <target name="compile" depends="prepare" description="Compile java into ${webinf.classes}">
+
+	<!--
+    <property name="cp" refid="full.classpath"/>
+    <echo message="Classpath is ${cp}"/>
+	-->
+
+	<javac srcdir="${javasource.home}"
+          destdir="${webinf.classes}"
+           debug="on"
+     deprecation="on"
+        optimize="on">
+        <classpath refid="base.classpath"/>
+		<!-- <compilerarg value="-Xlint"/> -->
+    </javac> 
+
+    <copy todir="${webinf.classes}">
+      <fileset dir="${javasource.home}">
+        <include name="**/*.properties"/>
+        <include name="**/*.xml"/>
+      </fileset>
+    </copy>
+
+  </target><!-- =========== END OF: compile target ========================== -->
+
+
+
+  <!-- ==================== Compile_all Target ============================== -->
+  <target name="compile_all" depends="prepare" description="Deletes ${webinf.classes} dir, then recompiles all java classes into ${webinf.classes}">
+    <delete dir="${webinf.classes}"/>
+    <mkdir  dir="${webinf.classes}"/>
+	<antcall target="compile"/>
+  </target><!-- END OF: compile_all target -->
+
+
+
+  <!-- ==================== Deploy Target ============================== -->
+  <target name="deploy" depends="compile_all" description="Compile all, then touch web.xml (to force jboss)">
+    <exec dir="${webinf}" executable="touch.exe">
+      <arg line="web.xml"/>
+    </exec>
+  </target><!-- END OF: deploy target -->
+
+
+
+  <!-- ==================== WAR Target ====================================== -->
+  <target name="war" depends="compile" description="Creates war file.">
+    <war destfile="${basedir}/${war.name}" webxml="${webinf}/web.xml">
+      <zipfileset dir="${webcontent.home}"/>
+      <manifest>
+        <attribute name="Built-By" value="${company.name}"/>
+      </manifest>
+    </war>
+  </target><!-- =========== END OF: war target ============================== -->
+
+</project>

@@ -1,0 +1,38 @@
+.dojoHtmlCheckbox {
+	border: 0px;
+	width: 16px;
+	height: 16px;
+	margin: 2px;
+	vertical-align: middle;
+}
+
+.dojoHtmlCheckboxOn {
+	background: url('http://farm4.static.flickr.com/3439/3184976185_74ec23bee7.jpg') 0px 0px;
+	/*background: url('http://farm4.static.flickr.com/3315/3184921165_2b73f5f37c.jpg') 0px 0px;*/
+	/*background: url('http://farm3.static.flickr.com/2226/2197555750_14e765fc67_o.gif') 0px 0px;*/
+}
+.dojoHtmlCheckboxOff {
+	background: url('http://farm4.static.flickr.com/3439/3184976185_74ec23bee7.jpg') -16px 0px;
+	/*background: url('http://farm4.static.flickr.com/3315/3184921165_2b73f5f37c.jpg') -16px 0px;*/
+	/*background: url('http://farm3.static.flickr.com/2226/2197555750_14e765fc67_o.gif') -16px 0px;*/
+}
+.dojoHtmlCheckboxDisabledOn {
+	background: url('http://farm4.static.flickr.com/3439/3184976185_74ec23bee7.jpg') -32px 0px;
+	/*background: url('http://farm4.static.flickr.com/3315/3184921165_2b73f5f37c.jpg') -32px 0px;*/
+	/*background: url('http://farm3.static.flickr.com/2226/2197555750_14e765fc67_o.gif') -32px 0px;*/
+}
+.dojoHtmlCheckboxDisabledOff {
+	background: url('http://farm4.static.flickr.com/3439/3184976185_74ec23bee7.jpg') -48px 0px;
+	/*background: url('http://farm4.static.flickr.com/3315/3184921165_2b73f5f37c.jpg') -48px 0px;*/
+	/*background: url('http://farm3.static.flickr.com/2226/2197555750_14e765fc67_o.gif') -48px 0px;*/
+}
+.dojoHtmlCheckboxOnHover {
+	background: url('http://farm4.static.flickr.com/3439/3184976185_74ec23bee7.jpg') -64px 0px;
+	/*background: url('http://farm4.static.flickr.com/3315/3184921165_2b73f5f37c.jpg') -64px 0px;*/
+	/*background: url('http://farm3.static.flickr.com/2226/2197555750_14e765fc67_o.gif') -64px 0px;*/
+}
+.dojoHtmlCheckboxOffHover {
+	background: url('http://farm4.static.flickr.com/3439/3184976185_74ec23bee7.jpg') -80px 0px;
+	/*background: url('http://farm4.static.flickr.com/3315/3184921165_2b73f5f37c.jpg') -80px 0px;*/
+	/*background: url('http://farm3.static.flickr.com/2226/2197555750_14e765fc67_o.gif') -80px 0px;*/
+}

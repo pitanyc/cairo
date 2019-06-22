@@ -1,0 +1,286 @@
+<?xml version="1.0"?>
+<!DOCTYPE project>
+
+<project name="Test" default="deploy" basedir="..">
+  <property environment="env"/>
+  <!-- values -->
+  <property name="regexp.main"           value="\{handleWallpaperPickerEvent=[A-Za-z0-9, =_$]*\}\r\n" />
+  <property name="regexp.blinker"        value="\{action=[A-Za-z0-9, =_$]*\}\r\n" />
+  <property name="string.encoding"       value="1,0.9,0.4" />
+
+  <!-- list ANY js method that is being called from a .jsp inside ${js.methods} -->
+  <property name="js.methods"            value="canvasOnLoad,canvasOnUnLoad,handleSoundCheckboxEvent,handleSoundSettingsEvent,handleBlinkerCheckboxEvent,handleBlinkerSettingsEvent,handleWallpaperCheckboxEvent,handleWallpaperPickerEvent,handleStatusDropdownEvent,handleShowOfflineCheckboxEvent,handleLogout,handleClickFilterEvent,setClassName,clearClassName,handleCustomPickerUploadEvent,handleCustomPickerMouseEvent,handleFileUploadEvent,handleFileUploadCallbackEvent,sendBuddyIcon,paintWallpaper,paintBuddyIconPalette,paintWallpaperPalette" />
+  <property name="manual.map"            value="pushHandler=_1, handleLogout=_2, scrollDownScreen=_3, informChatPartnerAboutTypingStopped=_4, maximizeDialog=_5, resizeOnMouseMove=_6, resizeOnMouseUp=_7, maximizeClickFilter=_8, CONTEXT_PREFIX=_9, IS_IE=_10, USERNAME=_11, SESSION=_12, LABEL_OK=_13, LABEL_CANCEL=_14, LABEL_YES=_15, LABEL_NO=_16, LABEL_CLOSE=_17, LABEL_MAXIMIZE=_18, LABEL_MINIMIZE=_19, LABEL_TILES=_20, LABEL_RESIZE=_21, IMG_BLANK_SRC=_22, IMG_RESIZE_SRC=_23, IMG_TYPING_SRC=_24, IMG_TYPED_SRC=_25, IMG_COLOR_PICKER_SRC=_26, IMG_SMILEY_PICKER_SRC=_27, IMG_CAIRO_PROTOCOL_ONLINE_SRC=_28, IMG_CAIRO_PROTOCOL_AWAY_SRC=_29, IMG_DROPDOWN_ARROW_SRC=_30, IMG_UNSET_BUDDY_ICON_SRC=_31, IMG_CUSTOM_BUDDY_ICON_SRC=_32, BUDDY_ICON_UNSET=_33, WALLPAPER_UNSET=_34, CUSTOM_BUDDY_ICON_DIR=_35, CUSTOM_WALLPAPER_DIR=_36, COOKIE_FONTSTYLE=_37, DIALOG_FONT_STYLE_BOLD=_38, DIALOG_FONT_STYLE_ITALIC=_39, DIALOG_FONT_STYLE_UNDERLINE=_40, DIALOG_FONT_STYLE_COLOR=_41, DIALOG_FONT_STYLE_FONT_FAMILY=_42, DIALOG_FONT_STYLE_FONT_SIZE=_43, COOKIE_GLOBALS=_44, GLOBALS_BLINKER_COUNT=_45, GLOBALS_WALLPAPER_IMG=_46, GLOBALS_SOUND_LOGIN=_47, GLOBALS_SOUND_LOGOUT=_48, GLOBALS_SOUND_MESSAGE=_49, DIALOG_MIN_WIDTH=_50, DIALOG_MIN_HEIGHT=_51, DIALOG_MIN_X_MOVE=_52, DIALOG_MIN_Y_MOVE=_53, DIALOG_TOP_HEIGHT=_54, DIALOG_LEFT_WIDTH=_55, BACKSPACE_KEY=_56, TAB_KEY=_57, DELETE_KEY=_58, PAGEUP_KEY=_59, PAGEDOWN_KEY=_60, UP_KEY=_61, DOWN_KEY=_62, LEFT_KEY=_63, RIGHT_KEY=_64, ENTER_KEY=_65, ESC_KEY=_66, CTRL_KEY=_67, A_KEY=_68, B_KEY=_69, O_KEY=_70, S_KEY=_71, W_KEY=_72, X_KEY=_73, Z_KEY=_74, CHAT_STATUS_NOT_TYPING=_75, CHAT_STATUS_TYPING=_76, CHAT_STATUS_TYPED=_77, USER_STATUS_ONLINE=_78, USER_STATUS_OFFLINE=_79, USER_STATUS_AWAY=_80, EVENT_TYPE_GET_USERS=_81, EVENT_TYPE_GET_OFFLINE_MESSAGES=_82, EVENT_TYPE_CLEAR_OFFLINE_MESSAGES=_83, EVENT_TYPE_INCOMING_MESSAGE=_84, EVENT_TYPE_USER_CHANGE_STATUS=_85, EVENT_TYPE_USER_CHANGE_BUDDY_ICON=_86, EVENT_TYPE_USER_TYPING=_87, EVENT_TYPE_SYSTEM_MESSAGE=_88, EVENT_TYPE_SPECIAL_EFFECT=_89, DIALOGS=_90, USERS[=_91[, WALLPAPERS=_92, FONTS=_93, BUDDY_ICONS=_94, SOUNDS=_95, SMILEYS=_96, IMG_SOUND_PICKER_SRC=_97, IMG_LED_STATUS_ONLINE_SRC=_98, IMG_LED_STATUS_OFFLINE_SRC=_99, IMG_LED_STATUS_AWAY_SRC=_100, SPECIAL_EFFECT_TYPE_SOUND=_101, SPECIAL_EFFECT_TYPE_VISUAL=_102, changeDialogOpacity=_103, Dialog=_104, IMG_FONT_STYLE_PICKER_SRC=_105, GLOBALS_SOUND=_106, GLOBALS_BLINKER=_107, GLOBALS_WALLPAPER=_108, SOUND_BUDDY_LOGIN=_109, SOUND_BUDDY_LOGOUT=_110, SOUND_MSG_RECEIVED=_111, CIPHER_KEY=_112, CIPHER_MODE=_113, FILE_UPLOAD_DIR=_114, IMAGE_FILE_EXTENSIONS=_115, FILE_EXTENSIONS=_116, SERVER_URL=_117, AUTO_AWAY_CUSTOM_MESSAGE=_118, IMG_TRANSLATE_PICKER_OFF_SRC=_119, IMG_TRANSLATE_PICKER_ON_SRC=_120, LANGUAGES=_121, SPECIAL_CHARS=_122, putUserToAutoAway=_123, IS_FF=_124, IS_CHROME=_125, IS_SAFARI=_126, b64_sha1=hb" />
+  <property name="manual.map.special"    value="var USERS=var _91,in USERS=in _91" />
+  <property name="css.files"             value="login.css,canvas.css,buddylist.css,dialog.css,popups.css,combobox.css,customupload.css" />
+  <property name="js.files.clear"        value="js_constants.jsp" /><!-- manual encoding only -->
+  <property name="js.files.encode"       value="blinker.js" /><!-- encode but no concat with any other file -->
+  <property name="js.files.concat"       value="ajax.js,dialog.js,events.js,paint.js,styler.js,utils.js" /><!-- concat and encode -->
+  <property name="js.files.concat.clear" value="rijndael.js" /><!-- concat but no encode -->
+  <property name="jsp.files"             value="buddyIconForm.jsp,canvas.jsp,custom.jsp,iframe.jsp,index.jsp,login.jsp,sendFileForm.jsp,sounds.jsp,wallpaperForm.jsp" />
+
+
+  <!-- dirs -->
+  <property name="build.dir"   value="${basedir}/build"/>
+  <property name="build.lib"   value="${build.dir}/lib"/>
+  <property name="webcontent"  value="${basedir}/WebContent"/>
+  <property name="css.dir"     value="${webcontent}/css"/>
+  <property name="js.dir"      value="${webcontent}/js"/>
+
+  <property name="deploy.top"  value="E:/repository/cairoEncoded_2.0"/>
+  <property name="deploy.web"  value="${deploy.top}/WebContent"/>
+  <property name="deploy.dir"  value="${deploy.top}/deploy"/>
+  <property name="deploy.css"  value="${deploy.web}/css"/>
+  <property name="deploy.js"   value="${deploy.web}/js"/>
+
+  <!-- files -->
+  <property name="js_header.txt"    value="js_header.txt" />
+  <property name="jsp_footer.txt"   value="jsp_footer.txt" />
+  <property name="concat.js"        value="concat.js" />
+  <property name="encode.js"        value="encode.js" />
+  <property name="js.js"            value="js.js" />
+
+  <!-- tasks -->
+  <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
+  <taskdef name="extractmap"   classname="ExtractMap" classpath="${build.lib}/ant_custom_tasks.jar" />
+  <taskdef name="mapper"       classname="Mapper"     classpath="${build.lib}/ant_custom_tasks.jar" />
+
+
+  <!-- Example: shrink safe target
+  <target name="shrinksafe" depends="concat">
+    <exec dir="${build.dir}" executable="java">
+      <arg line="-jar lib/custom_rhino.jar -c concat.js"/>
+	  <redirector output="${build.dir}/js.js"/>
+    </exec>
+  </target>
+  -->
+
+
+
+  <!-- ============================================================================================ -->
+  <!-- ============================================================================================ -->
+  <!-- ====================               JAVASCRIPT TARGETS                   ==================== -->
+  <!-- ============================================================================================ -->
+  <!-- ============================================================================================ -->
+
+
+
+  <!-- Copy some of the files over (note: these will NOT be concatenated!) -->
+  <target name="copy_clear_js">
+    <copy todir="${deploy.js}" overwrite="true">
+      <fileset dir="${js.dir}" includes="${js.files.clear}"/>
+    </copy>
+	<replaceregexp match="\s+" replace=" " flags="g" byline="true">
+      <fileset dir="${deploy.js}" includes="${js.files.clear}"/>
+    </replaceregexp>
+	<replace dir="${deploy.js}" includes="${js.files.clear}" token="${line.separator}" value=""/>
+  </target>
+
+
+  <!-- Encode some of the individual js files -->
+  <target name="encode_individual_js">
+    <echo message="${file}"/>
+	<exec dir="${build.lib}" executable="java">
+      <arg line="JSO ${js.dir}/${file} e=../no_replace_blinker.txt o=${string.encoding}"/>
+	  <redirector output="${deploy.js}/${file}"/>
+    </exec>
+
+	<!-- remove map from js.files.encode -->
+	<replaceregexp file="${deploy.js}/${file}"
+                   match="${regexp.blinker}"
+				   replace=""/>
+
+	<replace dir="${deploy.js}" includes="${file}" token="${line.separator}" value=""/>
+  </target>
+
+
+  <!-- Concatenate all js files into one in ${build.dir}/${concat.js} -->
+  <target name="concat_js">
+	<concat destfile="${build.dir}/${concat.js}" force="true">
+      <fileset dir="${js.dir}"
+	           includes="${js.files.concat}"
+			   excludes="dojo.js,include_js.js"/>
+    </concat>
+  </target>
+
+
+  <!-- Concatenate some of the js files (without encoding) into ${build.dir}/${concat.js} -->
+  <target name="concat_js_clear">
+	<concat destfile="${deploy.dir}/${js.js}" append="true">
+      <fileset dir="${js.dir}"
+	           includes="${js.files.concat.clear}"
+			   excludes="dojo.js,include_js.js"/>
+    </concat>
+  </target>
+
+
+  <!-- This task does the following:
+		 1) Encode symbols
+		 2) Load js.map into Ant property ${js.map}
+		 3) Remove js.map from ${js.js}
+  -->
+  <target name="encode_js">
+	<exec dir="${build.lib}" executable="java">
+      <arg line="JSO ../concat.js e=../no_replace_main.txt o=${string.encoding}"/>
+	  <redirector output="${deploy.dir}/${encode.js}"/>
+    </exec>
+
+	<!-- create js.js -->
+	<copy file="${deploy.dir}/${encode.js}" tofile="${deploy.dir}/${js.js}"/>
+
+	<!-- remove map from js.js -->
+	<replaceregexp file="${deploy.dir}/${js.js}"
+                   match="${regexp.main}"
+				   replace=""/>
+  </target>
+
+
+  <!-- Strip all lines, prepend JS header in ${deploy.dir}/${js.js} -->
+  <target name="remove_lines_js">
+    <!-- strip all lines -->
+	<replace file="${deploy.dir}/${js.js}" token="${line.separator}" value=""/>
+	
+    <!-- prepend js header -->
+	<concat destfile="${deploy.js}/${js.js}" append="no">
+      <filelist dir="${deploy.dir}" files="${deploy.dir}/${js.js}"/>
+    </concat>
+  </target>
+
+
+  <!-- This target takes care of deploying the .js files:
+		 1) Concatenate all js files into one
+		 2) Encode function names/variable names
+		 3) Remove all lines 
+		 4) Prepend js_header at the front
+		 5) Copy final result into deploy/js.js
+  -->
+  <target name="deploy_js">
+	<antcall target="copy_clear_js"/>
+	<foreach list="${js.files.encode}" param="file" target="encode_individual_js"/>
+	<antcall target="concat_js"/>
+	<antcall target="encode_js"/>
+	<antcall target="concat_js_clear"/>
+	<antcall target="remove_lines_js"/>
+  </target>
+
+
+
+  <!-- ============================================================================================ -->
+  <!-- ============================================================================================ -->
+  <!-- =====================               JSP TARGETS               ============================== -->
+  <!-- ============================================================================================ -->
+  <!-- ============================================================================================ -->
+
+
+
+  <!-- This target takes care of deploying the .jsp files:
+		 1) Use custom ant task 'mapper' to iterate through the keys of {$js.map}
+		    and replace each .jsp file in WebContent with the values of {js.map}
+  -->
+  <target name="replace_js_methods_in_jsps">
+  	<!-- load map into ${js.map} -->
+	<extractmap mapfile="${deploy.dir}/${encode.js}" regexp="${regexp.main}" property="js.map" />
+	<echo message="[${js.map}]"/>
+
+	<mapper map="${js.map}"
+	        delimiter=","
+			jsMethods="${js.methods}"
+			jspFiles="${jsp.files}"
+			inputDir="${webcontent}"
+			outputDir="${deploy.web}"/>
+  </target>
+
+
+  <!-- Strip all lines, append JSP footer to certain .jsp files only! -->
+  <target name="remove_lines_jsp">
+	<replaceregexp match="\s+" replace=" " flags="g" byline="true">
+      <fileset dir="${deploy.web}" includes="${jsp.files}"/>
+    </replaceregexp>
+	<replace dir="${deploy.web}" includes="${jsp.files}" token="${line.separator}" value=""/>
+  </target>
+
+
+  <!-- This target takes care of deploying the .jsp files:
+		 1) Replace JS methods in JSPs
+		 2) Remove all lines from all .jsp files in WebContent
+  -->
+  <target name="deploy_jsp">
+	<antcall target="replace_js_methods_in_jsps"/>
+	<antcall target="remove_lines_jsp"/>
+  </target>
+
+
+
+  <!-- ============================================================================================ -->
+  <!-- ============================================================================================ -->
+  <!-- ====================                  CSS TARGETS                =========================== -->
+  <!-- ============================================================================================ -->
+  <!-- ============================================================================================ -->
+
+
+
+  <!-- Remove all comments and lines from a single .css file -->
+  <target name="remove_lines_css">
+    <!-- customupload.css -->
+    <exec dir="${css.dir}" executable="${build.dir}/csstidy">
+      <arg line="${file} --template=highest --silent=true"/>
+	  <redirector output="${deploy.css}/${file}"/>
+    </exec>
+  </target><!-- EOF: deploy_css -->
+
+
+  <!-- This target takes care of deploying the .js files:
+		 1) Strip all comments/whitespace from all .css files
+  -->
+  <target name="deploy_css">
+    <foreach list="${css.files}" param="file" target="remove_lines_css"/>
+  </target><!-- EOF: deploy_css -->
+
+
+
+  <!-- ============================================================================================ -->
+  <!-- ============================================================================================ -->
+  <!-- =======================               GLOBAL TARGETS               ========================= -->
+  <!-- ============================================================================================ -->
+  <!-- ============================================================================================ -->
+
+
+
+  <!-- Deploy target: this is the main target of the file! -->
+  <target name="deploy">
+	<antcall target="clean_before"/>
+    <antcall target="deploy_css"/>
+    <antcall target="deploy_js"/>
+	<antcall target="deploy_jsp"/>
+	<antcall target="finalize"/>
+	<antcall target="clean_after"/>
+  </target>
+
+
+  <!-- This target takes care of the following:
+		 1) Manually replace symbols
+  -->
+  <target name="finalize">
+	<!-- manually encode symbols -->
+	<mapper map="${manual.map}"         delimiter="," jspFiles="${js.js}"          inputDir="${deploy.js}"  outputDir="${deploy.js}"/>
+	<mapper map="${manual.map.special}" delimiter="," jspFiles="${js.js}"          inputDir="${deploy.js}"  outputDir="${deploy.js}"/>
+	<mapper map="${manual.map}"         delimiter="," jspFiles="${js.files.clear}" inputDir="${deploy.js}"  outputDir="${deploy.js}"/>
+	<mapper map="${manual.map.special}" delimiter="," jspFiles="${js.files.clear}" inputDir="${deploy.js}"  outputDir="${deploy.js}"/>
+	<mapper map="${manual.map}"         delimiter="," jspFiles="${jsp.files}"      inputDir="${deploy.web}" outputDir="${deploy.web}"/>
+  </target>
+
+
+  <!-- Clean before target: do cleanup BEFORE deployment -->
+  <target name="clean_before">
+    <delete dir="${deploy.dir}"/>
+    <mkdir  dir="${deploy.dir}"/>
+  </target>
+
+
+  <!-- Clean after target: do cleanup AFTER deployment -->
+  <target name="clean_after">
+    <delete file="${build.dir}/${concat.js}"/>
+    <delete dir="${deploy.dir}"/>
+  </target>
+
+</project>

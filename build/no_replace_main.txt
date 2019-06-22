@@ -1,0 +1,5 @@
+dojo djConfig cometd
+startBlinkTitle stopBlinkTitle blinkTitle setDelayedAction
+pushHandler handleLogout scrollDownScreen informChatPartnerAboutTypingStopped maximizeDialog resizeOnMouseMove resizeOnMouseUp maximizeClickFilter changeDialogOpacity
+h2b b2h b2s c2e e2c
+putUserToAutoAway

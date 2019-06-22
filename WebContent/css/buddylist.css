@@ -1,0 +1,321 @@
+/************************************    BUDDY LIST    ***********************************/
+
+/* BUDDY LIST GUI */
+
+
+/* this controls the width and height of the entire buddy list div */
+div#buddyList {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 220px;
+	height: 45%;
+	display: none;
+}
+
+.iwinList {
+    filter:alpha(opacity=80); 
+	opacity:0.80;
+	height: 220px;
+}
+
+.iwinList .left {
+    background: url('http://farm3.static.flickr.com/2264/2230112100_e97eddb104_o.gif') repeat-y;
+    width: 8px; 
+    height: 220px;	/* IE only */
+    float: left;
+}
+
+/* this controls the buddy list content height for IE! */
+.iwinList .mid { 
+	float: left;
+	background-color: #4A514A;
+	border: 1px solid #999;
+	width: 202px;
+	height: 218px;							/* IE only */
+	overflow: auto;
+	scrollbar-arrow-color: #999999;			/* IE only */
+	scrollbar-base-color: #999999;			/* IE only */
+	scrollbar-darkshadow-color: #999999;	/* IE only */
+	scrollbar-face-color: #4A514A;			/* IE only */
+	scrollbar-highlight-color: #4A514A;		/* IE only */
+	scrollbar-shadow-color: #4A514A;		/* IE only */
+}
+
+/* this controls the buddy list content height for FF! */
+html>body .iwinList .mid { 
+	height: 202px;							/* FF only */
+}
+
+.iwinList .right {
+    background: url('http://farm3.static.flickr.com/2165/2230112128_7e7a5e7721_o.gif') repeat-y;
+    width: 8px; 
+	height: 220px;	/* IE only */
+    float: right;
+}
+
+html>body .iwinList .left, html>body .iwinList .right { 
+	height: 204px;							/* FF only */
+}
+
+.btmbarList {
+    filter:alpha(opacity=80); 
+	opacity:0.80; 
+	height: 2px;
+}
+
+.btmbarList .left { 
+    background: url('http://farm3.static.flickr.com/2370/2230111740_a54ce3342b_o.gif') no-repeat;
+    width: 8px; 
+	height: 8px;
+    float: left;
+}
+
+.btmbarList .mid {
+	background: url('http://farm3.static.flickr.com/2057/2230111714_baf46d62a0_o.gif') repeat-x;	
+    width: 204px; 
+	height: 8px;
+    float: left;
+}
+
+.btmbarList .right {
+    background: url('http://farm3.static.flickr.com/2093/2230111768_94f561bb40_o.gif') no-repeat;
+    width: 8px; 
+	height: 8px;
+    float: right;
+}
+
+.topbarList {
+    filter:alpha(opacity=80); 
+	opacity:0.80; 
+    display: block;
+    height: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+.topbarList a.top {
+    background: url('http://farm3.static.flickr.com/2160/2230112400_a383725034_o.gif') no-repeat;
+    width: 8px;
+    height: 24px;
+    float: left;
+	border: 0px solid white;
+    padding: 0;
+}
+
+.topbarList a.close {
+    background: url('http://farm3.static.flickr.com/2274/2229320433_9510c8fd19_o.gif') no-repeat;
+    width: 8px;
+    height: 24px;
+    float: right;
+	border: 0px solid white;
+    padding: 0;
+}
+
+.topbarList .mid { 
+	background: url('http://farm3.static.flickr.com/2076/2229319967_3d8424e673_o.gif') repeat-x;
+    width: 150px;
+    height: 24px;
+    float: left;
+    padding: 0;
+	vertical-align: top;
+}
+
+.topbarList a.min { 
+    background: url('http://farm3.static.flickr.com/2382/2230112586_43447dbd4c_o.gif') no-repeat;
+    width: 28px;
+    height: 24px;
+    float: right;
+	border: 0px solid white;
+    padding: 0;
+}
+
+.topbarList a.max { 
+    background: url('http://farm3.static.flickr.com/2025/2229320341_10a957f19b_o.gif') no-repeat;
+    width: 26px;
+    height: 24px;
+    float: right;
+	border: 0px solid white;
+    padding: 0;
+}
+
+.topbarList a.minhover {
+    background: url('http://farm3.static.flickr.com/2159/2230112606_2b916c2812_o.gif') no-repeat;
+    width: 28px;
+    height: 24px;
+    float: right;
+	border: 0px solid white;
+    padding: 0;
+}
+
+.topbarList a.maxhover {
+    background: url('http://farm3.static.flickr.com/2237/2229320367_4fa59ef7be_o.gif') no-repeat;
+    width: 26px;
+    height: 24px;
+    float: right;
+	border: 0px solid white;
+    padding: 0;
+}
+
+.topmenuList {
+    filter:alpha(opacity=80); 
+	opacity:0.80; 
+	height: 55px;
+}
+
+.topmenuList .left {
+    background: url('http://farm3.static.flickr.com/2264/2230112100_e97eddb104_o.gif') repeat-y;
+    width: 8px;
+	height: 71px;
+    float: left;
+}
+
+.topmenuList .mid {
+	background: url('http://farm3.static.flickr.com/2081/2230111700_b8cb71fcfe_o.gif') repeat;
+	width: 204px;
+	height: 71px;
+	padding: 0;
+	margin:0px;
+	float: left;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.topmenuList .right {
+    background: url('http://farm3.static.flickr.com/2165/2230112128_7e7a5e7721_o.gif') repeat-y;
+    width: 8px;
+	height: 71px;
+    float: right;
+}
+
+.btmmenuList {
+    filter:alpha(opacity=80); 
+	opacity:0.80; 
+    width: 100%;
+    height: 54px;
+}
+
+.btmmenuList .left {
+    background: url('http://farm3.static.flickr.com/2264/2230112100_e97eddb104_o.gif') repeat-y;
+    width: 8px;
+    height: 100%;
+    float: left;
+}
+
+.btmmenuList .mid {
+	background: url('http://farm3.static.flickr.com/2081/2230111700_b8cb71fcfe_o.gif') repeat;
+	width: 204px;
+	height: 54px;
+	padding: 0;
+	margin: 0px;
+	float: left;
+	font-size: 10px;
+}
+
+/* show offline buddies */
+.btmmenuList .mid label {
+	font-size: 10px;
+	color: #999999;
+	margin-left: 4px;
+}
+
+.btmmenuList .right {
+    background: url('http://farm3.static.flickr.com/2165/2230112128_7e7a5e7721_o.gif') repeat-y;
+    width: 8px;
+    height: 100%;
+    float: right;
+}
+
+/************************************************************************************/
+/****************              BUDDY LIST STRUCTURE            **********************/
+/************************************************************************************/
+
+/* BUDDY LIST HEADER */
+
+
+/* this controls the look & feel of MY BUDDY ICON when NOT IN FOCUS */
+img#myBuddyIcon {
+	float: left;
+	height: 64px;
+	width: 64px;
+	margin-right: 10px;
+	cursor: pointer;
+	border-width: 2px;
+	border-style: solid;
+	border-color: #4A514A;
+}
+
+/* this controls the look & feel of MY BUDDY ICON when IN FOCUS */
+img#myBuddyIcon.focus {
+	border-color: orange;
+}
+
+/* this controls the look & feel of MY USER NAME on the buddy list */
+div#myUserName {
+	vertical-align: top;
+	color: orange;
+	cursor: default;
+}
+
+
+/* BUDDY LIST CONTENT */
+
+
+/* this controls the appearance of each logged in buddy on the buddy list */
+div.buddy {
+	border: 1px solid #4A514A;
+	padding: 2px 0px 0px 5px;
+	font-weight: bold;
+	color: white;
+	height: 50px;
+}
+
+/* this controls the appearance of each logged in buddy on the buddy list
+   when the mouse if hovering over that buddy */
+div.buddyHover {
+	border: 1px solid #4A514A; 
+	padding: 2px 0px 0px 5px;
+	font-weight: bold;
+	color: #4A514A;
+	background-color: #FFC52C;
+	cursor: pointer;
+	height: 50px;
+}
+
+/* this controls the style of the buddy icons on the dialogs */
+img.buddyIcon {
+	float: left;
+	height: 48px;
+	width: 48px;
+	margin-right: 12px;  /* controls how far is the buddy status indicator image from the buddy image */
+}
+
+/* this controls the style of the buddy names on the dialogs */
+span.buddyName {
+	float: left;
+	vertical-align: top;
+	width: 130px;
+}
+
+/* this controls the appearance of how the buddy status is displayed
+   for each logged in buddy on the buddy list */
+span.buddyStatus {
+	color: #999999;
+	font-family: geneva,arial,verdana,lucida,helvetica,sans-serif;
+	font-size: 12px;
+	font-style: italic;
+	font-weight: normal;
+	float: left;
+	padding-left: 12px;
+}
+
+
+/* BUDDY LIST FOOTER */
+
+
+/* this controls the position of the logout button */
+img#logout {
+	float: right;
+	margin-top: 0px;
+	cursor: pointer;
+}

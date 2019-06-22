@@ -1,0 +1,167 @@
+/* hide scrollbar on ie, set background color, margin */
+html, body {
+	font: 100% "Trebuchet MS",Verdana,Arial,sans-serif;
+	padding: 0px;
+	margin: 0px;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;	/* to hide scrollbars on body:
+	                     * NOTE: THIS ALSO FIXES FF DOJO DRAGGING PROBLEM!
+						 */
+	color: white;
+	background-color: #4A514A;
+
+	/* disable user selection in Mozilla: http://www.tutorialized.com/view/tutorial/Disable-user-text-select-in-Firefox/38632 */
+	user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+}
+
+/* no dotted lines around any links */
+a {
+	outline: none;
+}
+
+/* disable user selection in Mozilla: http://www.tutorialized.com/view/tutorial/Disable-user-text-select-in-Firefox/38632 */
+div {
+	user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: text;
+}
+
+/* GLOBAL CONTROLS */
+
+/* controls the styling of the branding text on the canvas */
+h1 {
+	font-family: Cursive;
+	color: white;
+	margin: 0px 0px 0px 3px;
+	padding: 0;
+}
+
+/* this controls the appearance of the global controls: sound/blinker/wallpaper */
+#globalControls {
+	background-image: url('../img/canvas/leftcorner.gif');
+	width: 280px;
+	z-index: 1;
+	filter:alpha(opacity=80);
+	opacity:0.80;
+}
+
+/* sounds embedded objects are inside this IFRAME */
+#globalSounds {
+	position: absolute;
+	/*display: none;*/
+	z-index: -10;
+	left: 0;
+	top: 0;
+	width: 0px;
+	height: 0px;
+}
+
+/* this controls the appearance of one item in the the global controls: sound/blinker/wallpaper */
+.options {
+	left: 5px;
+	color: #DDDDDD;
+}
+
+/* this controls the appearance of the CONFIGURABLE parts of global controls:
+    soundSettings/blinkerSettingsPicker/wallpaperPicker WHEN NOT IN FOCUS */
+.options span {
+	font-family: Verdana,Arial,sans-serif;
+	font-size: 12px;
+	color: #AAAAAA;
+	margin: 0px;
+	font-weight: normal;
+}
+
+/* this controls the appearance of the CONFIGURABLE parts of the 
+   global controls: soundSettings/blinkerSettingsPicker/wallpaperPicker WHEN IN FOCUS */
+.options span.focus {
+	font-weight: bold;
+	color: orange;
+	cursor: pointer;
+}
+
+/* this controls the appearance of the Settings link WHEN NOT IN FOCUS */
+.settings {
+	position: absolute;
+	font-size: 12px;
+	font-weight: normal;
+	color: #AAAAAA;
+}
+
+/* this controls the appearance of the Settings link WHEN NOT IN FOCUS */
+.settingsFocus {
+	position: absolute;
+	font-size: 12px;
+	font-weight: bold;
+	color: orange;
+	cursor: pointer;
+}
+
+/* this controls the appearance of the Settings Dialog */
+div#settingsDialog {
+	position: absolute;
+	z-index: 20;
+}
+
+
+/* TRAY */
+
+#tray {
+    border: 0px solid red;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 40px;
+	margin: 0;
+	padding: 0;
+}
+
+#tray li {
+	cursor: default;
+	border: 0px solid white;
+	width: 147px;
+	height: 10px;
+	float: left;
+	padding: 0;
+	list-style-type: none;
+}
+
+img.trayImg {
+    border: 0px solid red;
+	width: 16px;
+	height: 16px;
+	padding: 0px 8px 0px 0px;
+}
+
+span.trayText {
+	font-size: 12px;
+	vertical-align: top;
+	padding: 0;
+	margin: 0;
+}
+
+
+/* ETC */
+
+/* this controls the appearance of the ajax wait indicator */
+#waitIndicator {
+	position: absolute;
+	left: 100px;
+	top: 15px;
+	filter:alpha(opacity=80);
+	opacity:0.80;
+}
+
+/* this controls the appearance of the bgFrame */
+#bgFrame {
+	position: absolute;
+	display: none;
+	z-index: -5;
+	left: 0;
+	top: 0;
+	width: 0px;
+	height: 0px;
+}

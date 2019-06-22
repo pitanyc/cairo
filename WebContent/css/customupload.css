@@ -1,0 +1,89 @@
+/* BUDDY ICON PICKER, WALLPAPER PICKER */
+
+
+/* this controls the appearance of the TABLE (most outside container) */
+#buddyIconPalette, #wallpaperPalette {
+	visibility:hidden;
+	position:absolute;
+	background-color:white;
+	border:1px solid #cccccc;
+	padding:0;
+	z-index:20;
+}
+
+/* this controls the appearance of each entry NOT IN FOCUS */
+#buddyIconPalette td, #wallpaperPalette td {
+	border:1px solid #E7E7CF;
+}
+
+/* this controls the appearance of the entry IN FOCUS */
+#buddyIconPalette td.focus, #wallpaperPalette td.focus {
+	border:1px solid #313473;
+}
+
+/* this controls the size of each buddy icon in the buddy icon picker palette */
+#buddyIconPalette img {
+	width:48px;
+	height:48px;
+}
+
+/* this controls the size of each wallpaper icon in the wallpaper picker palette */
+#wallpaperPalette img {
+	width:64px;
+	height:48px;
+}
+
+
+/* CUSTOM UPLOAD FORMS */
+
+/* this controls the appearance of the custom upload form divs
+   (actually the form is inside this div, and this controls that div + everything inside it!) */
+#customBuddyIconForm, #customWallpaperForm {
+	visibility:visible;
+	border:0px solid green;
+	position:absolute;
+	z-index:25;
+	background-color:green;
+	filter: alpha(Opacity: 0);	/* IE only */
+	opacity:0;					/* FF only */
+}
+
+/* buddy icon custom upload form width
+   NOTE: ONLY CHANGE THIS IF THE WIDTH OF THE BUDDY ICON IMAGES CHANGE FROM 48PX TO SOMETHING ELSE! */
+#customBuddyIconForm label.customUpload {
+	width: 52px;		/* IE and FF */
+}
+
+/* wallpaper custom upload form width
+   NOTE: ONLY CHANGE THIS IF THE WIDTH OF THE WALLPAPER ICONS CHANGE FROM 64PX TO SOMETHING ELSE! */
+#customWallpaperForm label.customUpload {
+	width: 68px;		/* IE and FF */
+}
+
+/* this controls the appearance of input elements inside the custom upload forms 
+   NOTE: ONLY CHANGE THIS IF THE HEIGHT OF THE CUSTOM UPLOAD IMAGES CHANGE FROM 48PX TO SOMETHING ELSE! */
+label.customUpload {
+	height: 33px;		/* IE only */
+	display: block;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+/* HACK: because of IE's rendering of the label, on the custom upload forms,
+   this hack is needed to correctly size custom upload form for Moz.
+   IE doesn't understand this CSS rule.
+   NOTE: that the width here applies to Moz only!
+   NOTE: ONLY CHANGE THIS IF THE HEIGHT OF THE CUSTOM UPLOAD IMAGES CHANGE FROM 48PX TO SOMETHING ELSE! */
+html>body label.customUpload {
+	height: 52px;		/* FF only */
+}
+
+/* this controls the appearance of input elements inside the custom upload forms 
+   NOTE: DO NOT CHANGE THIS CSS CLASS!  */
+label.customUpload input {
+	position: relative;
+	height: 100%;
+	width: auto;
+	filter: alpha(Opacity: 0);	/* IE only */
+	opacity: 0;					/* FF only */
+}

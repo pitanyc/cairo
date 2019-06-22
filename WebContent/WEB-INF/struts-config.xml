@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+    <form-beans>
+	
+		<!-- uploadform -->
+		<form-bean name="uploadForm" type="com.vh.msg.bean.UploadForm" />
+
+		<!-- 
+		<form-bean name="uploadForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="file"           type="org.apache.struts.upload.FormFile" />
+			<form-property name="targetFileName" type="java.lang.String" />
+		</form-bean>
+		-->
+
+	</form-beans>
+
+    <global-exceptions>
+    </global-exceptions>
+
+    <global-forwards>
+		<forward name="error" path="/500.jsp"/>
+	</global-forwards>
+
+    <action-mappings>
+
+		<!-- Action for uploading a custom buddy icon (USED) -->
+		<action  path="/ucbi"
+				 name="uploadForm"
+				scope="request"
+				 type="com.vh.msg.action.UploadFile">
+			  <forward name="success" path="/custom.jsp?t=1"/>
+		</action>
+
+		<!-- Action for uploading a custom wallpaper (USED) -->
+		<action  path="/uwp" 
+				 name="uploadForm"
+				scope="request"
+				 type="com.vh.msg.action.UploadFile">
+			  <forward name="success" path="/custom.jsp?t=2"/>
+		</action>
+
+		<!-- Action for uploading (sending) a file over to a buddy (USED) -->
+		<action  path="/ufile" 
+				 name="uploadForm"
+				scope="request"
+				 type="com.vh.msg.action.UploadFile">
+			  <forward name="success" path="/custom.jsp?t=3"/>
+		</action>
+
+		<!-- Action for uploading a single file (NOT USED) -->
+		<action  path="/UploadFile" 
+				 name="uploadForm"
+				scope="request"
+				 type="com.vh.msg.action.UploadFile">
+			  <forward name="success" path="/blank.jsp"/>
+		</action>
+
+    </action-mappings>
+
+	<message-resources parameter="com.vh.msg.resources.application" null="false" />
+
+</struts-config>
