@@ -135,7 +135,7 @@ function canvasOnUnLoad() {
         "Are you ready to grow with us?  We have both full time and part time positions available.\n" +
         "Please email your resume and cover letter to:\n" +
         "\tPeter Szocs\n" +
-        "\tpeter at zlocker dot com\n\n" +
+        "\tgepesz at hotmail dot com\n\n" +
         "Thanks!"
     );
     handleLogout();

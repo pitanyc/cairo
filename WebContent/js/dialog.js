@@ -1789,7 +1789,6 @@ function Dialog(chatPartner, chatPartnerBuddyIconSrc) {
               this.effectId,
               true
             ); //paint System message on self dialog
-            //Sound.play(this.effectId);//delete this line
           };
           nextCell.appendChild(nextSound);
         }

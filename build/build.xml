@@ -2,7 +2,7 @@
 
   <!-- ==================== Prepare Target ================================== -->
   <target name="prepare"  description="Defines all environments and base directories used by build">
-    <property name="company.name"       value="ZLocker Inc."/>
+    <property name="company.name"       value="Peter Szocs"/>
     <property name="war.name"           value="cairo.war"/>
     <property name="war.dir"            value="${basedir}"/>
 

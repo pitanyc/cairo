@@ -1298,7 +1298,7 @@ function appendMessageToChatHistory(dialog, mb) {
         //add http/smiley feature to msg tokens
         var httpWWWRegExp = new RegExp('http(s)?:\/\/|www\\.\\w', 'i'); //matches http/https/www
         var httpRegExp = new RegExp('http(s)?:\/\/', 'i');              //matches http/https
-        var httpServerUrlRegExp = new RegExp(SERVER_URL, 'i');          //matches http://zlocker.com
+        var httpServerUrlRegExp = new RegExp(SERVER_URL, 'i');          //matches http://abc.com
 
         //consume each token until the tokens equal '', build dialog.screen symultaneously
         for(var i=0; i<lineToken.length; i++) {
