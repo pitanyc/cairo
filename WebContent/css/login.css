@@ -45,7 +45,7 @@ div#logo {
 	font-family: Cursive;
 	font-size: 36px;
 	float: right;
-	margin: 45% 20px 0px 0px;
+	margin: 37% 20px 0px 0px;
 }
 
 /* right box content span for padding */
@@ -58,8 +58,9 @@ span#rightBoxContent {
 /* welcome text */
 div#welcome {
 	font-size: 26px;
-	font-weight: bold;
-	margin-left: 20px;
+    font-weight: bold;
+    color: orange;
+	margin-left: 38px;
 	margin-bottom: 15px; 
 }
 
@@ -108,11 +109,11 @@ input#goButton {
 div#copyright {
 	background-color: #6A6A69;
 	font-family: Cursive;
-	font-size: 14px;
+	font-size: 18px;
 	position: absolute;
 	right: 0px;
 	bottom: 0px;
-	margin: 0px 0px 0px 0px;
+	margin: 0px 30px 20px 0px;
 	padding: 0px 8px 0px 12px;
 	filter: alpha(opacity=60);
 	opacity: 0.6;
