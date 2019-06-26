@@ -12,14 +12,21 @@
 	<link rel="stylesheet" type="text/css" href="css/dialog.css"/>
 	<link rel="stylesheet" type="text/css" href="css/popups.css"/>
 	<link rel="stylesheet" type="text/css" href="css/combobox.css"/>
-	<link rel="stylesheet" type="text/css" href="css/customupload.css"/>
+    <link rel="stylesheet" type="text/css" href="css/customupload.css"/>
 	<script language="JavaScript" type="text/javascript">
-      var djConfig = {isDebug: true};
+      var djConfig = {isDebug: false};
     </script>
     <script type="text/javascript" src="js/dojo.js"></script>
 
-	<%@ include file="js/include_js.jsp"%>
-
+    <script src="js/js_constants.jsp" type="text/javascript"></script>
+    <script src="js/rijndael.js" type="text/javascript"></script>
+    <script src="js/styler.js" type="text/javascript"></script>
+    <script src="js/ajax.js" type="text/javascript"></script>
+    <script src="js/utils.js" type="text/javascript"></script>
+    <script src="js/dialog.js" type="text/javascript"></script>
+    <script src="js/paint.js" type="text/javascript"></script>
+    <script src="js/events.js" type="text/javascript"></script>
+    
     <script language="JavaScript" type="text/javascript">
       dojo.require('dojo.widget.*');
       dojo.addOnLoad(canvasOnLoad);

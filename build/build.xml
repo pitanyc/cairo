@@ -40,6 +40,7 @@
 
 	<javac srcdir="${javasource.home}"
           destdir="${webinf.classes}"
+          includeantruntime="false"
            debug="on"
      deprecation="on"
         optimize="on">
@@ -62,16 +63,14 @@
   <target name="compile_all" depends="prepare" description="Deletes ${webinf.classes} dir, then recompiles all java classes into ${webinf.classes}">
     <delete dir="${webinf.classes}"/>
     <mkdir  dir="${webinf.classes}"/>
-	<antcall target="compile"/>
+    <antcall target="compile"/>
   </target><!-- END OF: compile_all target -->
 
 
 
   <!-- ==================== Deploy Target ============================== -->
   <target name="deploy" depends="compile_all" description="Compile all, then touch web.xml (to force jboss)">
-    <exec dir="${webinf}" executable="touch.exe">
-      <arg line="web.xml"/>
-    </exec>
+    <touch file="${webinf}/web.xml"/>
   </target><!-- END OF: deploy target -->
 
 

@@ -99,7 +99,7 @@
 	<concat destfile="${build.dir}/${concat.js}" force="true">
       <fileset dir="${js.dir}"
 	           includes="${js.files.concat}"
-			   excludes="dojo.js,include_js.js"/>
+			   excludes="dojo.js"/>
     </concat>
   </target>
 
@@ -109,7 +109,7 @@
 	<concat destfile="${deploy.dir}/${js.js}" append="true">
       <fileset dir="${js.dir}"
 	           includes="${js.files.concat.clear}"
-			   excludes="dojo.js,include_js.js"/>
+			   excludes="dojo.js"/>
     </concat>
   </target>
 
