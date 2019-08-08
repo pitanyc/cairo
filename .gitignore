@@ -1,5 +1,12 @@
-.svn
-*.exe
-*.class
+# Custom uploads
 WebContent/img/buddy_icons/custom/
 WebContent/img/wallpapers/custom/
+
+# Compiled files
+*.class
+
+# OS files
+.DS_Store
+
+# Executables
+*.exe

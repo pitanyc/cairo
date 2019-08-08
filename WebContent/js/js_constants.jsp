@@ -24,6 +24,34 @@ var SERVER_URL = '<%=request.getRequestURL()%>'.substr(0, '<%=request.getRequest
 var USERNAME = top.cairo.userName;
 var SESSION = { valid: true };
 
+<% /* API keys */ %>
+var YANDEX_API_KEY = "trnsl.1.1.20190802T205522Z.84963c6d07fe2a2c.f9be13a7755cdbf4b65a4770988cf7a3254ba9c1";
+
+<% /* URLs
+
+Translation URLs, see:
+    https://tech.yandex.com/translate/doc/dg/reference/getLangs-docpage/
+    https://tech.yandex.com/translate/doc/dg/reference/translate-docpage/
+
+*/ %>
+var GET_LANGUAGES_REQUEST = "https://translate.yandex.net/api/v1.5/tr.json/getLangs";
+var TRANSLATE_REQUEST = "https://translate.yandex.net/api/v1.5/tr.json/translate";
+
+<% /* Supported languages for translation */ %>
+var LANGUAGES = [];
+JSONP.get(GET_LANGUAGES_REQUEST, {key: YANDEX_API_KEY, ui: "en"}, function(response) {
+    if(response && response.langs) {
+        for (let [key, value] of Object.entries(response.langs)) {
+            LANGUAGES.push({
+                code: key,
+                name: value
+            });
+        }
+        LANGUAGES.sort((a, b) => a.name.localeCompare(b.name));
+        LANGUAGES.push({ code: '', name: 'DETECT' });
+    }
+});
+
 <% /* Labels */ %>
 var LABEL_OK = 'Ok';
 var LABEL_CANCEL = 'Cancel';
@@ -200,13 +228,6 @@ var FONTS = [ { type: 'Arial',          size: '8',   detect: false  },
 			  { type: 'Verdana',        size: '',    detect: false  }  ];
 
 <% /* Fonts hashmap: contains the supported font types and font sizes */ %>
-var LANGUAGES = [ { name: 'DETECT',     code: ''   },
-                  { name: 'English',    code: 'en' },
-			      { name: 'Hungarian',  code: 'hu' },
-			      { name: 'Spanish',    code: 'es' },
-     			  { name: 'Turkish',    code: 'tr' } ];
-
-<% /* Fonts hashmap: contains the supported font types and font sizes */ %>
 var SPECIAL_CHARS = [ { ascii: '&#39;',   value: '\'' } ];
 
 <% /* Buddy icons hashmap: contains the default buddy icons */ %>
@@ -235,8 +256,8 @@ var BUDDY_ICONS = [ { img: 'http://farm3.static.flickr.com/2165/2197542520_cb008
 var SOUNDS = [ { img: 'http://farm4.static.flickr.com/3037/2975639788_3b59b16ef0.jpg',      name: 'cash.mp3',              desc: 'Money'              },
 		       { img: 'http://farm4.static.flickr.com/3041/2755002211_19f1156890.jpg',      name: 'rooster.mp3',           desc: 'Rooster wake up'    },
                { img: 'http://farm4.static.flickr.com/3101/2707221875_b3c86f2de3.jpg',      name: 'drums.mp3',             desc: 'Drums'              },
-               { img: 'http://farm4.static.flickr.com/3235/2755834984_e74594ef29.jpg',      name: 'goodbyeee.wav',         desc: 'Goodbyeee'          },
-		       { img: 'http://farm4.static.flickr.com/3124/2708037378_ce6bb7600c.jpg',      name: 'ringin.wav',            desc: 'Ring ring'          },
+               { img: 'http://farm4.static.flickr.com/3235/2755834984_e74594ef29.jpg',      name: 'goodbye.wav',         desc: 'Goodbyeee'          },
+		       { img: 'http://farm4.static.flickr.com/3124/2708037378_ce6bb7600c.jpg',      name: 'ringin.mp3',            desc: 'Ring ring'          },
                { img: 'http://farm4.static.flickr.com/3016/2755003059_c058b9b048.jpg',	    name: 'cow.mp3',               desc: 'Cow'                },
 		       { img: 'http://farm4.static.flickr.com/3144/2975639796_ac0ab18ab8.jpg',      name: 'duck.mp3',              desc: 'Duck'               },
                { img: 'http://farm4.static.flickr.com/3151/2707221797_383c703bbf.jpg',	    name: 'halleluya.mp3',         desc: 'Halleluya'          },

@@ -1255,44 +1255,79 @@ function Dialog(chatPartner, chatPartnerBuddyIconSrc) {
         languagePalette.id = cssId;
         languagePalette.cellSpacing = "0";
         languagePalette.cellPadding = "0";
-        for (
-          var i = cssId == "languagePaletteFrom" ? 0 : 1;
-          i < LANGUAGES.length;
-          i++
-        ) {
-          //the next row
-          var nextRow = languagePalette.insertRow(-1);
-          nextRow.className = ""; //by default each entry is NOT in focus
-          nextRow.onmouseover = function(e) {
+        let nextRow = undefined;
+        let rowIndex = -1;
+        const langCount =
+          cssId == "languagePaletteFrom"
+            ? LANGUAGES.length
+            : LANGUAGES.length - 1;
+
+        // figure out the column offsets
+        const floor = Math.floor(langCount / 4);
+        const offset = [0, floor, 2 * floor, 3 * floor];
+        switch (langCount - 4 * floor) {
+          case 0:
+            break;
+          case 1:
+            offset[1]++;
+            offset[2]++;
+            offset[3]++;
+            break;
+          case 2:
+            offset[1]++;
+            offset[2] += 2;
+            offset[3] += 2;
+            break;
+          case 3:
+            offset[1]++;
+            offset[2] += 2;
+            offset[3] += 3;
+            break;
+          default:
+            break;
+        }
+
+        // now iterate thru the languages
+        for (let i = 0; i < langCount; i++) {
+          // the next row
+          let colIndex = i % 4; // 0..3
+          if (colIndex == 0) {
+            nextRow = languagePalette.insertRow(-1);
+            rowIndex++;
+          }
+
+          // the next cell
+          var index = offset[colIndex] + rowIndex;
+          var nextCell = nextRow.insertCell(-1);
+          nextCell.title = LANGUAGES[index].name; //onhover show the user an alt message
+          nextCell.code = LANGUAGES[index].code;
+          nextCell.onmouseover = function(e) {
             this.className = "focus";
-          }; //onmouseover effects
-          nextRow.onmouseout = function(e) {
+          };
+          nextCell.onmouseout = function(e) {
             this.className = "";
-          }; //onmouseout effects
-          nextRow.onclick = function(e) {
+          };
+          nextCell.onclick = function(e) {
             handleClickFilterEvent();
-            var focusDialog = getInFocusDialog(); //get the in focus dialog
-            var selectedLanguage = this.firstChild.title; //the picked language
-            if (selectedLanguage.length > 12)
-              selectedLanguage = selectedLanguage.substr(0, 12) + "..."; //if selected language too long, truncate it first
+            var focusDialog = getInFocusDialog(); // get the in focus dialog
+            var selectedLanguage = this.title; // the picked language
+            if (selectedLanguage.length > 12) {
+              selectedLanguage = selectedLanguage.substr(0, 12) + "..."; // truncate if necessary
+            }
             if (cssId == "languagePaletteFrom") {
-              focusDialog.translate.from = this.firstChild.code;
+              focusDialog.translate.from = this.code;
               document
                 .getElementById("translatePalette")
                 .getElementsByTagName("SPAN")[1].innerHTML = selectedLanguage;
             } else {
-              focusDialog.translate.to = this.firstChild.code;
+              focusDialog.translate.to = this.code;
               document
                 .getElementById("translatePalette")
                 .getElementsByTagName("SPAN")[2].innerHTML = selectedLanguage;
             }
             updateTranslatePicker(focusDialog);
           };
-
-          var nextCell = nextRow.insertCell(-1);
-          nextCell.title = LANGUAGES[i].name; //onhover show the user an alt message
-          nextCell.code = LANGUAGES[i].code;
-          nextCell.appendChild(document.createTextNode(LANGUAGES[i].name));
+          nextCell.appendChild(document.createTextNode(LANGUAGES[index].name));
         }
         document.body.appendChild(languagePalette);
       }

@@ -1388,13 +1388,26 @@ function appendMessageToChatHistory(dialog, mb) {
     //entry point
     if(mb.source != USERNAME && mb.source != 'System') mb.message = b2s(e2c(h2b(mb.message),CIPHER_KEY,CIPHER_MODE));
     if(mb.source != 'System' && mb.translate.enabled) {
-        top.google.language.translate(mb.message, mb.translate.from, mb.translate.to, function(result) {
-            if(result.translation) {
-              mb.originalMessage = mb.message;
-              mb.message = result.translation.replace(': ', ':').replace('| ', '|').replace(' |', '|');
+        // translate mb.message
+        var params = {
+          key: YANDEX_API_KEY,
+          text: mb.message,
+          lang: mb.translate.from ?
+                mb.translate.from + "-" + mb.translate.to :
+                mb.translate.to
+        };
+        //console.log(params);
+        JSONP.get(TRANSLATE_REQUEST, params, function(response) {
+          console.log(response);
+          if(response && response.code == 200) {
+            // success
+            mb.originalMessage = mb.message;
+            if(response.text && response.text.length > 0) {
+              mb.message = response.text[0];
             }
-            paintMessage(dialog, mb);
-	        if(dojo.widget.manager.getWidgetById('blinkerCheckbox').checked) top.cairo.blinkTitle(mb.source, mb.message, dialog.id);
+          }
+          paintMessage(dialog, mb);
+          if(dojo.widget.manager.getWidgetById('blinkerCheckbox').checked) top.cairo.blinkTitle(mb.source, mb.message, dialog.id);
         });
     } else {
         paintMessage(dialog, mb);

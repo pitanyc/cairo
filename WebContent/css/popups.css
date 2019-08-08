@@ -239,7 +239,7 @@ div#filter {
 }
 
 /* this controls the appearance of the entry IN FOCUS on the language palette */
-#languagePaletteFrom tr.focus, #languagePaletteTo tr.focus {
+#languagePaletteFrom td.focus, #languagePaletteTo td.focus {
 	background-color: #D58E17;
 	cursor: default;
 }

@@ -13,11 +13,9 @@
 	<link rel="stylesheet" type="text/css" href="css/popups.css"/>
 	<link rel="stylesheet" type="text/css" href="css/combobox.css"/>
     <link rel="stylesheet" type="text/css" href="css/customupload.css"/>
-	<script language="JavaScript" type="text/javascript">
-      var djConfig = {isDebug: false};
-    </script>
-    <script type="text/javascript" src="js/dojo.js"></script>
 
+    <script src="js/dojo.js" type="text/javascript"></script>
+    <script src="js/jsonp.min.js" type="text/javascript"></script>
     <script src="js/js_constants.jsp" type="text/javascript"></script>
     <script src="js/rijndael.js" type="text/javascript"></script>
     <script src="js/styler.js" type="text/javascript"></script>
@@ -31,6 +29,13 @@
       dojo.require('dojo.widget.*');
       dojo.addOnLoad(canvasOnLoad);
       dojo.addOnUnload(canvasOnUnLoad);
+
+      JSONP.init({
+        error: function(ex) {
+          console.log("Failed to load: " + ex.url);
+		},
+		timeout: 3000 // timeout in millis before error callback will be called if not yet completed
+	  });      
     </script>
 
   </head>
