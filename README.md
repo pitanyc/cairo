@@ -40,7 +40,7 @@ These are stored in cookies on the client side.
 2. The *System* sends you notifications when other users login, logoff, change status, and so forth.
 3. You can upload a custom wallpaper or buddy icon.  
 These images are stored on the server and remembered across sessions.
-4. If the server goes down, or we lose connection to it, the client side notifies you via an alert immediately.
+4. When the server goes down, or when we lose connection to it, you get an alert on the client side immediately.
 5. Notable keyboard shortcuts:  
  ```Esc: close currently in focus chat window```  
  ```Cmd + f: full screen```
