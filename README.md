@@ -1,6 +1,16 @@
-# cairo
+# Cairo
 
-Cairo is a Javascript based chat application.  Features include smileys, sounds, custom buddy icons, languagues, automatic language translations, offline notifications, blinkers, and many more.
+Cairo is a Javascript based chat application.  
+
+Features include:
+* smileys
+* sounds
+* custom buddy icons
+* languagues
+* automatic language translations
+* offline notifications
+* blinkers
+* and many more!
 
 ## Install Dependencies
 
@@ -19,12 +29,17 @@ Cairo is a Javascript based chat application.  Features include smileys, sounds,
  ```Username: whatever_you_like```  
  ```Password: istanbul```
 
+## Deploy to Heroku
+
+1. 
+
 ## Useful Tips
 
-1. Your wallpaper, sound & blinker choices are remembered across sessions.
-2. The System sends you notifications when other users login, logoff, change status, and so forth.
+1. Your wallpaper, sound & blinker choices are remembered across sessions.  These are stored in cookies on the client side.
+2. The *System* sends you notifications when other users login, logoff, change status, and so forth.
 3. You can upload a custom wallpaper or buddy icon.  These images are stored on the server and remembered across sessions.
-4. Keyboard shortcuts:  
+4. If the server goes down, or we lose connection to it, the client side notifies you via an alert immediately.
+5. Notable keyboard shortcuts:  
  ```Esc: close currently in focus chat window```  
  ```Cmd + f: full screen```
 
