@@ -31,7 +31,8 @@ Features include:
 
 ## Deploy to Heroku
 
-1. 
+1. Create WAR file: ```ant -f build/build.xml war```
+2. 
 
 ## Useful Tips
 
