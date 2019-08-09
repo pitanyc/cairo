@@ -26,13 +26,14 @@ Features include:
  ```ln -s $(pwd)/WebContent $CATALINA_HOME/webapps/cairo```
 3. Navigate to: [http://localhost:8080/cairo](http://localhost:8080/cairo)
 4. Login:  
- ```Username: whatever_you_like```  
+ ```Username: your_user_name```  
  ```Password: istanbul```
 
 ## Deploy to Heroku
 
 1. Create WAR file: ```ant -f build/build.xml war```
-2. 
+2. Install Heroku Java plugin: ```heroku plugins:install java```
+3. Deploy WAR file: ```heroku war:deploy cairo.war --app cairo-chat```
 
 ## Useful Tips
 
