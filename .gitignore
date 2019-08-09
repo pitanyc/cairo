@@ -5,8 +5,8 @@ WebContent/img/wallpapers/custom/
 # Compiled files
 *.class
 
+# Build files
+*.war
+
 # OS files
 .DS_Store
-
-# Executables
-*.exe
