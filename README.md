@@ -34,6 +34,7 @@ Features include:
 1. Create WAR file: ```ant -f build/build.xml war```
 2. Install Heroku Java plugin: ```heroku plugins:install java```
 3. Deploy WAR file: ```heroku war:deploy cairo.war --app cairo-chat```
+4. Navigate to: [https://cairo-chat.herokuapp.com/](https://cairo-chat.herokuapp.com/)
 
 ## Useful Tips
 
