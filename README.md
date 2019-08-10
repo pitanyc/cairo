@@ -1,6 +1,7 @@
 # Cairo
 
 Cairo is a Javascript based chat application.  
+Demo: [https://cairo-chat.herokuapp.com/](https://cairo-chat.herokuapp.com/)
 
 Features include:
 * smileys
